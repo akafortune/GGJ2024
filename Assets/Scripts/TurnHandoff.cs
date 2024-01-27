@@ -33,6 +33,7 @@ public class TurnHandoff : MonoBehaviour
         
         if(castPhase)
         {
+            resetBoard();
             Debug.Log(moveTimer);
             movePhase = false;
             enemyMovePhase = false;
@@ -45,6 +46,14 @@ public class TurnHandoff : MonoBehaviour
             castPhase = false;
             movePhase = false;
             Debug.Log("Enemy Move Phase");
+        }
+    }
+
+    public void resetBoard()
+    {
+        foreach(Tile t in PlayerMovement.board)
+        {
+            t.reset();
         }
     }
 }

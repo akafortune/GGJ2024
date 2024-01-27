@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public static Tile[,] board = new Tile[3,8];
     public GameObject[] tiles = new GameObject[24];
 
-    public static int playerX = 0, playerY = 0;
+    public static int playerX = 0, playerY = 0, hp = 100;
     // Start is called before the first frame update
     void Start()
     {

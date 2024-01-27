@@ -7,9 +7,11 @@ public class Tile
     GameObject tileObj;
     bool blocked;
     bool dangerous;
+    bool damage;
 
     public Tile()
     {
+        damage = false;
         blocked= false;
         dangerous= false;
         tileObj= new GameObject();
@@ -23,5 +25,24 @@ public class Tile
     public Transform getTilePos()
     {
         return this.tileObj.transform;
+    }
+
+    public void dangerOn()
+    {
+        this.dangerous = true;
+        this.tileObj.GetComponent<SpriteRenderer>().color = Color.yellow;
+    }
+
+    public void reset()
+    {
+        this.damage = false;
+        this.dangerous = false;
+        this.tileObj.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    public void damageOn()
+    {
+        this.damage = true;
+        this.tileObj.GetComponent<SpriteRenderer>().color = Color.red;
     }
 }
