@@ -11,7 +11,8 @@ public class Card : ScriptableObject
     public string jokeDescription;
     public JokeType jokeType;
 
-    //Determines if the attackRange is an offset or if it is set position
+    //Determines if the attackRange is an offset (true) or if it is
+    //set position (false)
     //If attackRange is null it does not hit any tiles!
     public bool relative;
     public List<Vector2> attackRange = new List<Vector2>();
