@@ -6,7 +6,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyLogic : MonoBehaviour
 {
-    public static int enemyX = 6;
+    public static int enemyX = 6, enemyY = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +25,11 @@ public class EnemyLogic : MonoBehaviour
             if(enemyX + xMovement > 3 && enemyX + xMovement < 8)
             {
                 enemyX += xMovement;
+            }
+
+            if(PlayerMovement.playerY > enemyY && enemyY + 1 < 2)
+            {
+
             }
 
             this.gameObject.transform.position = PlayerMovement.board[PlayerMovement.playerY, enemyX].getTilePos().position;
