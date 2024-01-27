@@ -45,4 +45,9 @@ public class Tile
         this.damage = true;
         this.tileObj.GetComponent<SpriteRenderer>().color = Color.red;
     }
+
+    public bool getDamage()
+    {
+        return this.damage;
+    }
 }

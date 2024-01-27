@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject[] tiles = new GameObject[24];
 
     public static int playerX = 0, playerY = 0, hp = 100;
+    public int damage = 10;
+    bool alreadyHit = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
             for(int j = 0; j < 8; j++)
             {
                 board[i,j].setTileObj(tiles[tileIndex]);
-                Debug.Log("added " + tileIndex);
                 tileIndex++;
             }
         }
@@ -72,6 +73,12 @@ public class PlayerMovement : MonoBehaviour
             }
             //Tile formatting is board[y,x]
             this.gameObject.transform.position = board[playerY, playerX].getTilePos().position;
+
+            if (board[playerY, playerX].getDamage() && !alreadyHit)
+            {
+                hp -= damage;
+                alreadyHit= true;          
+            }
         }
 
         if (TurnHandoff.castPhase)
@@ -79,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 TurnHandoff.enemyMovePhase = true;
+                alreadyHit = false;
             }
         }
     }

@@ -22,8 +22,6 @@ public class EnemyLogic : MonoBehaviour
             atkDelayTimer = 0;
 
             int xMovement = Random.Range(-1, 2);
-
-            Debug.Log(xMovement);
             
             if(enemyX + xMovement > 3 && enemyX + xMovement < 8)
             {

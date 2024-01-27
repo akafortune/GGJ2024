@@ -8,19 +8,13 @@ public class TurnHandoff : MonoBehaviour
     public static bool enemyMovePhase = false;
     public static bool castPhase = false;
     public float moveTimer = 0;
-    public static float moveTimeLimit = 3;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public static float moveTimeLimit = 2;
+    
     // Update is called once per frame
     void Update()
     {
         if (movePhase)
         {
-            Debug.Log("Move Phase");
             enemyMovePhase = false;
             castPhase= false;
             moveTimer += Time.deltaTime;
@@ -34,7 +28,6 @@ public class TurnHandoff : MonoBehaviour
         if(castPhase)
         {
             resetBoard();
-            Debug.Log(moveTimer);
             movePhase = false;
             enemyMovePhase = false;
             castPhase= true;
@@ -45,7 +38,6 @@ public class TurnHandoff : MonoBehaviour
         {
             castPhase = false;
             movePhase = false;
-            Debug.Log("Enemy Move Phase");
         }
     }
 
