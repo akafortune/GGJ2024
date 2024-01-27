@@ -40,7 +40,8 @@ public class CardDatabase : MonoBehaviour
             "Deal damage proportional to the Level of Laughs in a straight line.",
             JokeType.Witty,
             true,
-            temp));
+            temp,
+            1));
 
         temp.Clear();
 
@@ -60,7 +61,8 @@ public class CardDatabase : MonoBehaviour
             "towards the center.",
             JokeType.Corny,
             false,
-            temp));
+            temp,
+            2));
 
         temp.Clear();
 

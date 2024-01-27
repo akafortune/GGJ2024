@@ -16,6 +16,9 @@ public class Card : ScriptableObject
     //If attackRange is null it does not hit any tiles!
     public bool relative;
     public List<Vector2> attackRange = new List<Vector2>();
+    public int baseDamage;
+
+    //
 
     public Card(int Id, string JokeName, string JokeDescription, JokeType JokeType)
     {
@@ -29,7 +32,7 @@ public class Card : ScriptableObject
     }
 
     public Card(int Id, string JokeName, string JokeDescription, JokeType JokeType,
-        bool Relative, List<Vector2> AttackRange)
+        bool Relative, List<Vector2> AttackRange, int BaseDamage)
     {
         this.id = Id;
         this.jokeName = JokeName;
@@ -38,5 +41,6 @@ public class Card : ScriptableObject
 
         this.relative = Relative;
         this.attackRange = AttackRange;
+        this.baseDamage = BaseDamage;
     }
 }
