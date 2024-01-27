@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class PlayerMovement : MonoBehaviour
 {
     public static Tile[,] board = new Tile[3,8];
-    public GameObject[] tiles = new GameObject[24];
+    public GameObject[] tiles;
 
     public static int playerX = 0, playerY = 0, hp = 100;
     public int damage = 10;

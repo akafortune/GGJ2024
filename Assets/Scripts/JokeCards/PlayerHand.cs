@@ -27,8 +27,16 @@ public class PlayerHand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        nameText.SetText(playerHand[currentCard].GetName());
-        descriptionText.SetText(playerHand[currentCard].GetDescription());
+        if (playerHand.Count <= 0)
+        {
+            nameText.SetText("Out of jokes");
+            descriptionText.SetText("Get better material!");
+        }
+        else
+        {
+            nameText.SetText(playerHand[currentCard].GetName());
+            descriptionText.SetText(playerHand[currentCard].GetDescription());
+        }
     }
 
     public void TellJoke()

@@ -2,12 +2,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerDeck : MonoBehaviour
 {
     public List<Card> playerDeck = new List<Card>();
     public List<Card> discardDeck = new List<Card>();
+
+    public TextMeshProUGUI cardsInDeck;
 
 
     void Awake()
@@ -32,11 +35,17 @@ public class PlayerDeck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        cardsInDeck.SetText(playerDeck.Count.ToString());
     }
 
     public void FullShuffle()
     {
+        if(!TurnHandoff.castPhase)
+        {
+            //if not players turn to cast, don't shuffle
+            return;
+        }
+
         //Put cards in hand back in deck
         List<Card> hand = PlayerHand.playerHand;
         for (int i = 0; i < hand.Count; i++)
@@ -53,6 +62,8 @@ public class PlayerDeck : MonoBehaviour
         }
 
         Shuffle();
+
+        DrawCard();
     }
 
     public void Shuffle()
