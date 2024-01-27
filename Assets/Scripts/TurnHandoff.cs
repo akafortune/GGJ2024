@@ -22,20 +22,29 @@ public class TurnHandoff : MonoBehaviour
         {
             Debug.Log("Move Phase");
             enemyMovePhase = false;
+            castPhase= false;
             moveTimer += Time.deltaTime;
+
+            if(moveTimer > moveTimeLimit)
+            {
+                castPhase= true;
+            }
         }
         
-        if(moveTimer >= moveTimeLimit)
+        if(castPhase)
         {
+            Debug.Log(moveTimer);
             movePhase = false;
+            enemyMovePhase = false;
             castPhase= true;
             moveTimer= 0;
         }
         
         if(enemyMovePhase)
         {
-            Debug.Log("Enemy Move Phase");
             castPhase = false;
+            movePhase = false;
+            Debug.Log("Enemy Move Phase");
         }
     }
 }
