@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHand : MonoBehaviour
 {
@@ -10,12 +12,23 @@ public class PlayerHand : MonoBehaviour
 
     public PlayerDeck deck;
 
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI descriptionText;
+
     public int BASE_FLOW = 2;
+
+    private void Start()
+    {
+        playerHand = new List<Card>();
+        deck.DrawCard();
+        currentCard = 0;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        
+        nameText.SetText(playerHand[currentCard].GetName());
+        descriptionText.SetText(playerHand[currentCard].GetDescription());
     }
 
     public void TellJoke()

@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Card", menuName = "ScriptableObjects/Card", order = 1)]
-public class Card : ScriptableObject
+public class Card
 {
     public int id;
 
@@ -42,5 +41,15 @@ public class Card : ScriptableObject
         this.relative = Relative;
         this.attackRange = AttackRange;
         this.baseDamage = BaseDamage;
+    }
+
+    public string GetName()
+    {
+        return this.jokeName;
+    }
+
+    public string GetDescription()
+    {
+        return this.jokeDescription;
     }
 }
