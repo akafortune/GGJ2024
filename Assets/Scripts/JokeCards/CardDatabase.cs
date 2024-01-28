@@ -47,17 +47,16 @@ public class CardDatabase : MonoBehaviour
         /* Uses absolute values for the grid
          */
         List<Vector2> temp2 = new List<Vector2>();
-        temp2.Add(new Vector2(4, 0));
-        temp2.Add(new Vector2(4, 1));
-        temp2.Add(new Vector2(4, 2));
-        temp2.Add(new Vector2(7, 0));
-        temp2.Add(new Vector2(7, 1));
-        temp2.Add(new Vector2(7, 2));
+        temp2.Add(new Vector2(3, 0));
+        temp2.Add(new Vector2(3, 1));
+        temp2.Add(new Vector2(3, 2));
+        temp2.Add(new Vector2(5, 0));
+        temp2.Add(new Vector2(5, 1));
+        temp2.Add(new Vector2(5, 2));
 
         jokeDictionary.Add(3,
             new Card(3, "Knock-Knock?",
-            "Deal damage to enemy in the front and back columns and push enemy " +
-            "towards the center.",
+            "Deal damage to enemy in the front and back columns",
             JokeType.Corny,
             false,
             temp2,
@@ -81,7 +80,7 @@ public class CardDatabase : MonoBehaviour
             JokeType.None,
             true,
             temp100,
-            3));
+            20));
     }
 
     public static void AdditionalJokeEffect(Card joke, PlayerDeck deck)

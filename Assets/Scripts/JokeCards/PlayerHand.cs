@@ -21,6 +21,8 @@ public class PlayerHand : MonoBehaviour
 
     public int BASE_FLOW = 2;
 
+    public Animator earlAnim;
+
     private void Start()
     {
         playerHand = new List<Card>();
@@ -31,6 +33,7 @@ public class PlayerHand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        earlAnim.SetBool("Casting", false);
         if (playerHand.Count <= 0)
         {
             nameText.SetText("Out of jokes");
@@ -89,6 +92,7 @@ public class PlayerHand : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                earlAnim.SetBool("Casting", true);
                 TellJoke();
             }
 

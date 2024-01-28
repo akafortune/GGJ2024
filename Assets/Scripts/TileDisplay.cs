@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TileDisplay : MonoBehaviour
 {
     public Tile linkedTile;
+
+    public GameObject spriteDisplay;
+
+    public float expStayTimer = 0, expStayTimerMax = 5f;
+
+    public Sprite explosion, warning;
 
     public int yTileCoord, xTileCoord;
 
@@ -17,16 +24,24 @@ public class TileDisplay : MonoBehaviour
 
     void Update()
     {
+        if(expStayTimer >= expStayTimerMax)
+        {
+            spriteDisplay.GetComponent<SpriteRenderer>().enabled = false;
+        }
+
         if (linkedTile.currentState == TileState.PlayerHazard || linkedTile.currentState == TileState.EnemyHazard)
         {
             linkedTile.currentState = TileState.Base;
-            linkedTile.tileGameObject.GetComponent<SpriteRenderer>().color = Color.white;
             linkedTile.damage = 0;
             linkedTile.statusEffect = string.Empty;
+
         }
         else if (linkedTile.currentState == TileState.Warning)
         {
-            linkedTile.tileGameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+            expStayTimer += Time.deltaTime;
+
+            spriteDisplay.GetComponent<SpriteRenderer>().enabled = true;
+            spriteDisplay.GetComponent<SpriteRenderer>().sprite = warning;
             warningTimer += Time.deltaTime;
             if (warningTimer >= 1)
             {
@@ -39,6 +54,7 @@ public class TileDisplay : MonoBehaviour
 
     public void ActivateJoke()
     {
+        
         if (linkedTile.upcomingJoke == null)
         {
             Debug.Log("Null ref to Tile in ActivateJoke()");
@@ -54,6 +70,10 @@ public class TileDisplay : MonoBehaviour
         {
             linkedTile.currentState = TileState.PlayerHazard;
         }
+
+        spriteDisplay.GetComponent<SpriteRenderer>().sprite = explosion;
+        expStayTimer = 0;
+
 
         linkedTile.tileGameObject.GetComponent<SpriteRenderer>().color = Color.red;
 

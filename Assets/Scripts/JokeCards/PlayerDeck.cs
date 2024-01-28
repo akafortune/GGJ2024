@@ -15,7 +15,8 @@ public class PlayerDeck : MonoBehaviour
 
     void Awake()
     {
-        System.String decklist = RuntimeText.ReadString();
+        System.String decklist = "1,1,1,1,2,2,3,3,1,1,1,1,2,2,3,3,1,1,1,1,2,2,3,3,1,1,1,1,2,2,3,3,1,1,1,1,2,2,3,3,1,1,1,1,2,2,3,3";
+            //RuntimeText.ReadString();
         string[] cardIds = decklist.Split(",");
         for (int i = 0; i < cardIds.Length; i++) {
             try
@@ -73,6 +74,9 @@ public class PlayerDeck : MonoBehaviour
 
         Shuffle();
 
+        DrawCard();
+        DrawCard();
+        DrawCard();
         DrawCard();
     }
 

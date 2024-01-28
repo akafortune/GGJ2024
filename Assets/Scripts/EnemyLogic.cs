@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyLogic : MonoBehaviour
 {
+    public Animator JSAnim;
     public GameObject hpBar;
     public static int enemyX = 5, enemyY = 1;
     bool alreadyAttacked = false;
@@ -23,6 +23,8 @@ public class EnemyLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        JSAnim.SetBool("IsAttacking", false);
+        JSAnim.SetBool("IsHit", false);
         if (TurnHandoff.enemyMovePhase)
         {
             alreadyAttacked = false;
@@ -54,12 +56,15 @@ public class EnemyLogic : MonoBehaviour
         {
             if(!alreadyAttacked)
             {
+                JSAnim.SetBool("IsAttacking", true);
                 beamAttack();
+                
             }
         }
 
         if (PlayerMovement.board[enemyY, enemyX].currentState == TileState.EnemyHazard)
         {
+            JSAnim.SetBool("IsHit", true);
             currHP -= PlayerMovement.board[enemyY, enemyX].damage;
             recalculateHPBar();
         }
@@ -75,11 +80,23 @@ public class EnemyLogic : MonoBehaviour
         {
             PlayerMovement.board[enemyY, j].currentState = TileState.Warning;
             PlayerMovement.board[enemyY, j].upcomingJoke = laser;
+            
         }
-
         alreadyAttacked = true;
     }
 
+    public void recalculateHPBar()
+    {
+        float hpRatio = (float)currHP / (float)maxHP;
+        if (hpRatio <= 0)
+        {
+            hpRatio = 0;
+        }
+        float newBarLength = hpRatio * maxBarLength;
+        hpBar.transform.localScale = new Vector2(newBarLength, hpBar.transform.localScale.y);
+    }
+
+    /*
     public void recalculateHPBar()
     {
         float hpRatio = (float)currHP / (float)maxHP;
@@ -92,5 +109,6 @@ public class EnemyLogic : MonoBehaviour
         hpBar.transform.localScale = new Vector2(newBarLength, hpBar.transform.localScale.y);
         hpBar.transform.position = new Vector2(hpBar.transform.position.x + (difference / 2), hpBar.transform.position.y);
     }
+    */
 
 }
