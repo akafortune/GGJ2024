@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelOfLaughs : MonoBehaviour
 {
     public GameObject lolBar;
-    public static float levelOfLaughs = 100, maxLOL = 100;
+    public static float levelOfLaughs = 0, maxLOL = 100;
     public static JokeType favored;
     public float maxBarSize = 16.5f;
     // Start is called before the first frame update

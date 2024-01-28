@@ -33,6 +33,7 @@ public class PlayerHand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        earlAnim.SetBool("Throwing", false);
         earlAnim.SetBool("Casting", false);
         if (playerHand.Count <= 0)
         {
@@ -87,6 +88,7 @@ public class PlayerHand : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Q))
             {
+                earlAnim.SetBool("Throwing", true);
                 ThrowJoke();
             }
 
@@ -97,6 +99,7 @@ public class PlayerHand : MonoBehaviour
             }
 
             //End turn is in PlayerMovement script
+            
         }
     }
 
@@ -191,9 +194,10 @@ public class PlayerHand : MonoBehaviour
         }
         else
         {
+            
             currentFlow--;
         }
-
+        
         deck.discardDeck.Add(playerHand[currentCard]);
         playerHand.RemoveAt(currentCard);
 

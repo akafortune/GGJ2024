@@ -15,7 +15,7 @@ public class PlayerDeck : MonoBehaviour
 
     void Awake()
     {
-        System.String decklist = "1,1,1,1,2,2,3,3,1,1,1,1,2,2,3,3,1,1,1,1,2,2,3,3,1,1,1,1,2,2,3,3,1,1,1,1,2,2,3,3,1,1,1,1,2,2,3,3";
+        System.String decklist = "1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5";
             //RuntimeText.ReadString();
         string[] cardIds = decklist.Split(",");
         for (int i = 0; i < cardIds.Length; i++) {

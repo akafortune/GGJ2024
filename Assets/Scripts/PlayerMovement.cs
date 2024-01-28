@@ -123,9 +123,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if (currHP - board[playerY, playerX].damage <= 0 && LevelOfLaughs.levelOfLaughs >= 100)
             {
-                currHP = 50;
+                currHP = (int) maxHP / 2;
             } else if (currHP - board[playerY, playerX].damage <= 0 && LevelOfLaughs.levelOfLaughs < 100)
             {
+                LevelOfLaughs.levelOfLaughs = 50;
                 earlAnim.SetBool("Encore", true);
                 Debug.Log("You Lose");
                 SceneManager.LoadScene("TurnScene");
@@ -139,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void recalculateHPBar()
     {
-        float hpRatio = (float)currHP / (float)maxHP;
+        float hpRatio = (float) currHP / (float) maxHP;
         if (hpRatio <= 0)
         {
             hpRatio = 0;

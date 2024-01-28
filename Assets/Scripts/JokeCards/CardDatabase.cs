@@ -37,11 +37,11 @@ public class CardDatabase : MonoBehaviour
 
         jokeDictionary.Add(2,
             new Card(2, "On Fire",
-            "Deal damage proportional to the Level of Laughs in a straight line.",
+            "Deal damage in a straight line.",
             JokeType.Witty,
             true,
             temp1,
-            20));
+            5));
 
         //Knock-Knock?
         /* Uses absolute values for the grid
@@ -60,10 +60,36 @@ public class CardDatabase : MonoBehaviour
             JokeType.Corny,
             false,
             temp2,
-            2));
+            4));
 
-        //New Joke Here
+        //Cartoonish Violence
+        List<Vector2> temp = new List<Vector2>();
+        temp.Add(new Vector2(4, 0));
+        temp.Add(new Vector2(4, 1));
+        temp.Add(new Vector2(4, 2));
 
+        jokeDictionary.Add(4,
+            new Card(4, "Cartoonish Violence",
+            "Deal damage to enemy in the middle column with a falling piano",
+            JokeType.Slapstick,
+            false,
+            temp,
+            8));
+
+        //The Banana Peel Incident
+        temp = new List<Vector2>();
+        temp.Add(new Vector2(3, 0));
+        temp.Add(new Vector2(3, 2));
+        temp.Add(new Vector2(5, 0));
+        temp.Add(new Vector2(5, 2));
+
+        jokeDictionary.Add(5,
+            new Card(5, "Banana Peel",
+            "Throw a banana peel into the four corners",
+            JokeType.Slapstick,
+            false,
+            temp,
+            6));
         //Enemy Exclusive Jokes
 
         //Beam
@@ -80,7 +106,7 @@ public class CardDatabase : MonoBehaviour
             JokeType.None,
             true,
             temp100,
-            20));
+            8));
     }
 
     public static void AdditionalJokeEffect(Card joke, PlayerDeck deck)
