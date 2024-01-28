@@ -1,53 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
-public class Tile
+public class Tile : MonoBehaviour 
 {
-    GameObject tileObj;
-    bool blocked;
-    bool dangerous;
-    bool damage;
+    public GameObject tileObj;
+    public TileState currentState;
+    public int damage;
+    public string statusEffect;
 
-    public Tile()
+    public Card upcomingJoke;
+
+    private float warningTimer = 0;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        damage = false;
-        blocked= false;
-        dangerous= false;
-        tileObj= new GameObject();
+        currentState = TileState.Base;
+        damage = 0;
+        statusEffect = string.Empty;
     }
 
-    public void setTileObj(GameObject tileObj)
+    // Update is called once per frame
+    void Update()
     {
-        this.tileObj= tileObj;
+        if (currentState == TileState.PlayerHazard && currentState == TileState.EnemyHazard)
+        {
+            currentState = TileState.Base;
+            this.damage = 0;
+            this.statusEffect = string.Empty;
+        } 
+        else if (currentState == TileState.Warning)
+        {
+            tileObj.GetComponent<SpriteRenderer>().color = Color.yellow;
+            warningTimer += Time.deltaTime;
+            if (warningTimer >= 1)
+            {
+                ActivateJoke();
+            }
+        }
     }
 
-    public Transform getTilePos()
+    public void ActivateJoke()
     {
-        return this.tileObj.transform;
+        if(upcomingJoke.isPlayer)
+        {
+            currentState = TileState.EnemyHazard;
+        } else
+        {
+            currentState = TileState.PlayerHazard;
+        }
+
+        this.damage = CardDatabase.DamageFunction(upcomingJoke);
+        this.statusEffect = upcomingJoke.statusEffect;
+
+        upcomingJoke = null;
     }
 
-    public void dangerOn()
+    public void ResetTile()
     {
-        this.dangerous = true;
-        this.tileObj.GetComponent<SpriteRenderer>().color = Color.yellow;
+        currentState = TileState.Base;
+        damage = 0;
+        statusEffect = string.Empty;
     }
 
-    public void reset()
+    public void SetTileObj(GameObject TileObj)
     {
-        this.damage = false;
-        this.dangerous = false;
-        this.tileObj.GetComponent<SpriteRenderer>().color = Color.white;
+        tileObj = TileObj;
     }
 
-    public void damageOn()
+    public Transform GetTilePos()
     {
-        this.damage = true;
-        this.tileObj.GetComponent<SpriteRenderer>().color = Color.red;
-    }
-
-    public bool getDamage()
-    {
-        return this.damage;
+        return tileObj.transform;
     }
 }

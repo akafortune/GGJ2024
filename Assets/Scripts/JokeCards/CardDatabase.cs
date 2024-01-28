@@ -8,6 +8,8 @@ public class CardDatabase : MonoBehaviour
 
     private List<Vector2> temp = new List<Vector2>();
 
+    
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -34,6 +36,7 @@ public class CardDatabase : MonoBehaviour
         temp.Add(new Vector2(4, 0));
         temp.Add(new Vector2(5, 0));
         temp.Add(new Vector2(6, 0));
+        temp.Add(new Vector2(7, 0));
 
         jokeDictionary.Add(2,
             new Card(2, "On Fire",
@@ -67,5 +70,37 @@ public class CardDatabase : MonoBehaviour
         temp.Clear();
 
         //New Joke Here
+
+        //Enemy Exclusive Jokes
+
+        //Beam
+        temp.Add(new Vector2());
+        temp.Add(new Vector2());
+        temp.Add(new Vector2());
+        temp.Add(new Vector2());
+
+        jokeDictionary.Add(100,
+            new Card(100, false,
+            "Joke Lazer",
+            "\"BEAMU\" - Robo-Fortune",
+            JokeType.None,
+            true,
+            temp,
+            3));
+    }
+
+    public static void AdditionalJokeEffect(Card joke, PlayerDeck deck)
+    {
+        
+        switch (joke.id) {
+            case 1:
+                deck.DrawCard();
+                PlayerHand.currentFlow += 1;
+                break;
+        }
+    }
+    public static int DamageFunction(Card joke)
+    {
+        return joke.baseDamage;
     }
 }

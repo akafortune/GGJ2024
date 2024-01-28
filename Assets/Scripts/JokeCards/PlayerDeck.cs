@@ -47,18 +47,28 @@ public class PlayerDeck : MonoBehaviour
         }
 
         //Put cards in hand back in deck
-        List<Card> hand = PlayerHand.playerHand;
-        for (int i = 0; i < hand.Count; i++)
+        //Need to iterate twice without hard copy
+        int k = PlayerHand.playerHand.Count;
+        for (int i = 0; i < k; i++)
         {
-            playerDeck.Add(hand[i]);
-            PlayerHand.playerHand.RemoveAt(i);
+            playerDeck.Add(PlayerHand.playerHand[i]);
+        }
+        for (int i = 0; i < k; i++)
+        {
+            PlayerHand.playerHand.RemoveAt(0);
         }
 
         //Put cards in discard back into deck
-        for (int i = 0; i < discardDeck.Count; i++)
+        //Need to iterate twice without hard copy
+        k = discardDeck.Count;
+        for (int i = 0; i < k; i++)
         {
             playerDeck.Add(discardDeck[i]);
-            discardDeck.RemoveAt(i);
+
+        }
+        for (int i = 0; i < k; i++)
+        {
+            discardDeck.RemoveAt(0);
         }
 
         Shuffle();

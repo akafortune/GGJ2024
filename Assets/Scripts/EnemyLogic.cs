@@ -38,7 +38,7 @@ public class EnemyLogic : MonoBehaviour
                 enemyY -= 1;
             }
 
-            this.gameObject.transform.position = PlayerMovement.board[enemyY, enemyX].getTilePos().position;
+            this.gameObject.transform.position = PlayerMovement.board[enemyY, enemyX].GetTilePos().position;
 
             
             TurnHandoff.movePhase= true;
@@ -46,30 +46,19 @@ public class EnemyLogic : MonoBehaviour
 
         if(TurnHandoff.movePhase)
         {
-            beamWarning();
-
-            atkDelayTimer += Time.deltaTime;
-
-            if(atkDelayTimer > atkDelay)
-            {
-                beamAttack();
-            }
-        }
-    }
-
-    public void beamWarning()
-    {
-        for (int j = 0; j < enemyX; j++)
-        {
-            PlayerMovement.board[enemyY, j].dangerOn();
+            beamAttack();
         }
     }
 
     public void beamAttack()
     {
+        Card laser = new Card();
+        laser = CardDatabase.jokeDictionary[100];
+
         for (int j = 0; j < enemyX; j++)
         {
-            PlayerMovement.board[enemyY, j].damageOn();
+            PlayerMovement.board[enemyY, j].currentState = TileState.Warning;
+            PlayerMovement.board[enemyY, j].upcomingJoke = laser;
         }
     }
 

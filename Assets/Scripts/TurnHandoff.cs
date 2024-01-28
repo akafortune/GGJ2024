@@ -9,6 +9,8 @@ public class TurnHandoff : MonoBehaviour
     public static bool castPhase = false;
     public float moveTimer = 0;
     public static float moveTimeLimit = 2;
+
+    public PlayerDeck playerDeck;
     
     // Update is called once per frame
     void Update()
@@ -22,6 +24,8 @@ public class TurnHandoff : MonoBehaviour
             if(moveTimer > moveTimeLimit)
             {
                 castPhase= true;
+                playerDeck.DrawCard();
+                playerDeck.DrawCard();
             }
         }
         
@@ -45,7 +49,7 @@ public class TurnHandoff : MonoBehaviour
     {
         foreach(Tile t in PlayerMovement.board)
         {
-            t.reset();
+            t.ResetTile();
         }
     }
 }

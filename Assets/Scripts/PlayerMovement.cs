@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         {
             for(int j = 0; j < 8; j++)
             {
-                board[i,j].setTileObj(tiles[tileIndex]);
+                board[i,j].SetTileObj(tiles[tileIndex]);
                 tileIndex++;
             }
         }
@@ -72,11 +72,11 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
             //Tile formatting is board[y,x]
-            this.gameObject.transform.position = board[playerY, playerX].getTilePos().position;
+            this.gameObject.transform.position = board[playerY, playerX].GetTilePos().position;
 
-            if (board[playerY, playerX].getDamage() && !alreadyHit)
+            if (board[playerY, playerX].currentState == TileState.PlayerHazard && !alreadyHit)
             {
-                hp -= damage;
+                hp -= board[playerY, playerX].damage;
                 alreadyHit= true;          
             }
         }
@@ -89,5 +89,12 @@ public class PlayerMovement : MonoBehaviour
                 alreadyHit = false;
             }
         }
+    }
+
+
+    public void decrementHP(int damage)
+    {
+        //update later to trigger cutscene/encore on death
+        hp -= damage;
     }
 }
