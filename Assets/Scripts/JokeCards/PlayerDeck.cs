@@ -91,9 +91,12 @@ public class PlayerDeck : MonoBehaviour
 
     public void DrawCard()
     {
+        if (playerDeck.Count <= 0)
+        {
+            return;
+        }
         //Add the top card of the deck to player hand
         int topDeck = playerDeck.Count - 1;
-        Debug.Log(playerDeck[topDeck].GetName());
         PlayerHand.playerHand.Add(playerDeck[topDeck]);
         playerDeck.RemoveAt(topDeck);
     }

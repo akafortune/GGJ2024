@@ -77,4 +77,9 @@ public class Card
     {
         return this.jokeDescription;
     }
+
+    public string GetJokeType()
+    {
+        return this.jokeType.ToString();
+    }
 }

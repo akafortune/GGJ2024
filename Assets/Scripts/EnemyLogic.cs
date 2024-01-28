@@ -7,13 +7,17 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class EnemyLogic : MonoBehaviour
 {
     public GameObject hpBar;
-    public static int enemyX = 6, enemyY = 1;
+    public static int enemyX = 5, enemyY = 1;
     bool alreadyAttacked = false;
-    float currHP = 100, maxHP = 100, maxBarLength;
+    float maxBarLength;
+    public int maxHP;
+    public static int currHP;
+
     // Start is called before the first frame update
     void Start()
     {
         maxBarLength = hpBar.transform.localScale.x;
+        EnemyLogic.currHP = maxHP;
     }
 
     // Update is called once per frame
@@ -25,7 +29,7 @@ public class EnemyLogic : MonoBehaviour
 
             int xMovement = Random.Range(-1, 2);
             
-            if(enemyX + xMovement > 3 && enemyX + xMovement < 8)
+            if(enemyX + xMovement > 3 && enemyX + xMovement < 5)
             {
                 enemyX += xMovement;
             }
@@ -79,6 +83,9 @@ public class EnemyLogic : MonoBehaviour
     public void recalculateHPBar()
     {
         float hpRatio = (float)currHP / (float)maxHP;
+        if (hpRatio < 0) { 
+            hpRatio = 0;
+        }
         float oldBarLength = hpBar.transform.localScale.x;
         float newBarLength = hpRatio * maxBarLength;
         float difference = oldBarLength - newBarLength;

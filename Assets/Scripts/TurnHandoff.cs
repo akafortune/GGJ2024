@@ -23,6 +23,7 @@ public class TurnHandoff : MonoBehaviour
 
             if(moveTimer > moveTimeLimit)
             {
+                PlayerHand.currentFlow = 2;
                 castPhase= true;
                 playerDeck.DrawCard();
                 playerDeck.DrawCard();

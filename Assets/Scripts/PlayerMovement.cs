@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public int maxHP;
+    public float maxBarLength;
+
     public GameObject[] tiles;
-    public static Tile[,] board = new Tile[3,8];
+    public static Tile[,] board = new Tile[3,6];
     public GameObject hpBar;
     
 
-    public static int playerX = 0, playerY = 0, currHP = 100, maxHP = 100;
-    public float maxBarLength;
+    public static int playerX = 0, playerY = 0, currHP;
     bool alreadyHit = false;
     // Start is called before the first frame update
     void Awake()
@@ -21,13 +24,18 @@ public class PlayerMovement : MonoBehaviour
         maxBarLength = hpBar.transform.localScale.x;
     }
 
+    void Start()
+    {
+        currHP = maxHP;    
+    }
+
     private void BuildBoard()
     {
         int tileIndex = 0;
 
         for (int i = 0; i < 3; i++)
         {
-            for (int j = 0; j < 8; j++)
+            for (int j = 0; j < 6; j++)
             {
                 board[i, j] = new Tile();
                 board[i, j].tileGameObject = tiles[tileIndex];
@@ -73,6 +81,8 @@ public class PlayerMovement : MonoBehaviour
                     playerX += 1;
                 }
             }
+
+
             //Tile formatting is board[y,x]
             this.gameObject.transform.position = board[playerY, playerX].tileGameObject.transform.position;
 
@@ -96,7 +106,17 @@ public class PlayerMovement : MonoBehaviour
 
         if (board[playerY, playerX].currentState == TileState.PlayerHazard)
         {
-            currHP -= board[playerY, playerX].damage;
+            if (currHP - board[playerY, playerX].damage <= 0 && LevelOfLaughs.levelOfLaughs >= 100)
+            {
+                currHP = 50;
+            } else if (currHP - board[playerY, playerX].damage <= 0 && LevelOfLaughs.levelOfLaughs < 100)
+            {
+                Debug.Log("You Lose");
+                SceneManager.LoadScene("TurnScene");
+            } else if (currHP - board[playerY, playerX].damage > 0)
+            {
+                currHP -= board[playerY, playerX].damage;
+            }
             recalculateHPBar();
         }
     }
@@ -104,6 +124,10 @@ public class PlayerMovement : MonoBehaviour
     public void recalculateHPBar()
     {
         float hpRatio = (float)currHP / (float)maxHP;
+        if (hpRatio < 0)
+        {
+            hpRatio = 0;
+        }
         float oldBarLength = hpBar.transform.localScale.x;
         float newBarLength = hpRatio * maxBarLength;
         float difference = oldBarLength - newBarLength;

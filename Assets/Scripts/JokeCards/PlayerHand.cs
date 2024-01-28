@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class PlayerHand : MonoBehaviour
 {
@@ -15,8 +16,8 @@ public class PlayerHand : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI cardIndexText;
-
-    
+    public TextMeshProUGUI jokeTypeText;
+    public TextMeshProUGUI flowText;
 
     public int BASE_FLOW = 2;
 
@@ -35,47 +36,87 @@ public class PlayerHand : MonoBehaviour
             nameText.SetText("Out of jokes");
             descriptionText.SetText("Get better material!");
             cardIndexText.SetText("");
+            jokeTypeText.SetText("None");
         }
         else
         {
+            //Brute force bugfixing if block
+            if (currentCard >= playerHand.Count || currentCard < 0)
+            {
+                currentCard = 0;
+            }
+
             string currCardNum = (currentCard + 1).ToString();
-            Debug.Log(currentCard);
             nameText.SetText(playerHand[currentCard].GetName());
             descriptionText.SetText(playerHand[currentCard].GetDescription());
             cardIndexText.SetText(currCardNum + " / " + playerHand.Count.ToString());
+            jokeTypeText.SetText(playerHand[currentCard].GetJokeType());
         }
 
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if(currentCard -1 < 0)
-            {
-                currentCard = playerHand.Count - 1;
-            }
-            else
-            {
-                currentCard--;
-            }
-        }
+        flowText.SetText(currentFlow.ToString());
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        //Valid inputs only during CastPhase
+        if (TurnHandoff.castPhase)
         {
-            if(currentCard + 1 >= playerHand.Count)
+            if (Input.GetKeyDown(KeyCode.A))
             {
-                currentCard = 0;
-            } else
-            {
-                currentCard++;
+                if (currentCard - 1 < 0)
+                {
+                    currentCard = playerHand.Count - 1;
+                }
+                else
+                {
+                    currentCard--;
+                }
             }
+
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                if (currentCard + 1 >= playerHand.Count)
+                {
+                    currentCard = 0;
+                }
+                else
+                {
+                    currentCard++;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                ThrowJoke();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                TellJoke();
+            }
+
+            //End turn is in PlayerMovement script
         }
     }
 
     public void TellJoke()
     {
+        if (playerHand.Count <= 0)
+        {
+            return;
+        }
+
+        if (currentFlow <= 0)
+        {
+            return;
+        } 
+        else
+        {
+            currentFlow--;
+        }
+
         Card currentJoke = playerHand[currentCard];
         deck.discardDeck.Add(currentJoke);
         playerHand.RemoveAt(currentCard);
 
-        if (playerHand.Count != 0)
+        if (currentCard != 0)
         {
             currentCard -= 1;
         } 
@@ -89,14 +130,13 @@ public class PlayerHand : MonoBehaviour
 
         CardDatabase.AdditionalJokeEffect(currentJoke, deck);
 
-        Debug.Log("JokeId: " + currentJoke.id);
-
         //Board is [y, x], Player is 0-3, Enemy is 4-7
         bool relative = CardDatabase.jokeDictionary[currentJoke.id].relative;
         List <Vector2> currentRange = CardDatabase.jokeDictionary[currentJoke.id].attackRange;
 
         if (currentRange == null)
         {
+            LevelOfLaughs.increaseLOL(currentJoke);
             return;
         }
 
@@ -108,9 +148,9 @@ public class PlayerHand : MonoBehaviour
                 int offsetX = x + (int) currentRange[i].x;
                 int offsetY = y + (int) currentRange[i].y;
 
-                Debug.Log(currentRange[i].x + ", " + currentRange[i].y);
+                //Debug.Log(currentRange[i].x + ", " + currentRange[i].y);
 
-                if (offsetX > 7 || offsetX < 0 || offsetY > 2 || offsetY < 0)
+                if (offsetX > 5 || offsetX < 0 || offsetY > 2 || offsetY < 0)
                 {
                     break;
                 }
@@ -130,10 +170,32 @@ public class PlayerHand : MonoBehaviour
                 PlayerMovement.board[posY, posX].currentState = TileState.Warning;
             }
         }
+
+        LevelOfLaughs.increaseLOL(currentJoke);
     }
 
     public void ThrowJoke()
     {
-        Debug.Log("Throw card [INCOMPLETE]");
+        if (playerHand.Count <= 0)
+        {
+            return;
+        }
+
+        if (currentFlow <= 0)
+        {
+            return;
+        }
+        else
+        {
+            currentFlow--;
+        }
+
+        deck.discardDeck.Add(playerHand[currentCard]);
+        playerHand.RemoveAt(currentCard);
+
+        //CardDatabase.DiscardEffect()
+
+        //Decrement enemy health
+        EnemyLogic.currHP -= 1;
     }
 }
