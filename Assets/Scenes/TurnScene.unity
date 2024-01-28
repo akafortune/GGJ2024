@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 23721859}
   - component: {fileID: 23721858}
+  - component: {fileID: 23721860}
   m_Layer: 0
   m_Name: Tile 0,1
   m_TagString: Untagged
@@ -207,6 +208,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1796962281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &23721860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23721857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 1
+  xTileCoord: 0
+  warningTimer: 0
 --- !u!1 &70820723
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 80857376}
   - component: {fileID: 80857377}
+  - component: {fileID: 80857378}
   m_Layer: 0
   m_Name: Enemy Tile 3,1
   m_TagString: Untagged
@@ -431,6 +448,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &80857378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80857375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 1
+  xTileCoord: 4
+  warningTimer: 0
 --- !u!1 &256562781
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +473,7 @@ GameObject:
   m_Component:
   - component: {fileID: 256562782}
   - component: {fileID: 256562783}
+  - component: {fileID: 256562784}
   m_Layer: 0
   m_Name: Enemy Tile 1,0
   m_TagString: Untagged
@@ -515,6 +548,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &256562784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256562781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 0
+  xTileCoord: 6
+  warningTimer: 0
 --- !u!1 &282520896
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,6 +573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 282520897}
   - component: {fileID: 282520898}
+  - component: {fileID: 282520899}
   m_Layer: 0
   m_Name: Enemy Tile 2,2
   m_TagString: Untagged
@@ -599,6 +648,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &282520899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282520896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 2
+  xTileCoord: 5
+  warningTimer: 0
 --- !u!1 &384226520
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,6 +940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 408474128}
   - component: {fileID: 408474127}
+  - component: {fileID: 408474129}
   m_Layer: 0
   m_Name: Tile 1,2
   m_TagString: Untagged
@@ -950,6 +1015,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1796962281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &408474129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408474126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 2
+  xTileCoord: 1
+  warningTimer: 0
 --- !u!1 &457899899
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,6 +1173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 460566686}
   - component: {fileID: 460566685}
+  - component: {fileID: 460566687}
   m_Layer: 0
   m_Name: Tile 3,2
   m_TagString: Untagged
@@ -1167,6 +1248,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1796962281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &460566687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460566684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 2
+  xTileCoord: 3
+  warningTimer: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1537,6 +1633,7 @@ GameObject:
   m_Component:
   - component: {fileID: 592092380}
   - component: {fileID: 592092381}
+  - component: {fileID: 592092382}
   m_Layer: 0
   m_Name: Enemy Tile 3,2
   m_TagString: Untagged
@@ -1611,6 +1708,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &592092382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592092379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 2
+  xTileCoord: 4
+  warningTimer: 0
 --- !u!1 &675800458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,6 +1733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 675800459}
   - component: {fileID: 675800460}
+  - component: {fileID: 675800461}
   m_Layer: 0
   m_Name: Enemy Tile 3,0
   m_TagString: Untagged
@@ -1695,6 +1808,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &675800461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675800458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 0
+  xTileCoord: 4
+  warningTimer: 0
 --- !u!1 &682289343
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,6 +2207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 837214669}
   - component: {fileID: 837214668}
+  - component: {fileID: 837214670}
   m_Layer: 0
   m_Name: Tile 2,2
   m_TagString: Untagged
@@ -2153,6 +2282,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1796962281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &837214670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837214667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 2
+  xTileCoord: 2
+  warningTimer: 0
 --- !u!1 &888100660
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,6 +2307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 888100661}
   - component: {fileID: 888100662}
+  - component: {fileID: 888100663}
   m_Layer: 0
   m_Name: Enemy Tile 1,2
   m_TagString: Untagged
@@ -2237,6 +2382,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &888100663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888100660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 2
+  xTileCoord: 6
+  warningTimer: 0
 --- !u!1 &921159934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2376,6 +2536,7 @@ GameObject:
   m_Component:
   - component: {fileID: 942405241}
   - component: {fileID: 942405240}
+  - component: {fileID: 942405242}
   m_Layer: 0
   m_Name: Tile 2,1
   m_TagString: Untagged
@@ -2450,6 +2611,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1796962281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &942405242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942405239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 1
+  xTileCoord: 2
+  warningTimer: 0
 --- !u!1 &992695847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2594,6 +2770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1002793247}
   - component: {fileID: 1002793246}
+  - component: {fileID: 1002793248}
   m_Layer: 0
   m_Name: Tile 0,2
   m_TagString: Untagged
@@ -2668,6 +2845,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1796962281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1002793248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002793245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 2
+  xTileCoord: 0
+  warningTimer: 0
 --- !u!1 &1065396256
 GameObject:
   m_ObjectHideFlags: 0
@@ -2933,6 +3125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1257507724}
   - component: {fileID: 1257507725}
+  - component: {fileID: 1257507726}
   m_Layer: 0
   m_Name: Enemy Tile 0,1
   m_TagString: Untagged
@@ -3007,6 +3200,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1257507726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257507723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 1
+  xTileCoord: 7
+  warningTimer: 0
 --- !u!1 &1313400694
 GameObject:
   m_ObjectHideFlags: 0
@@ -3131,6 +3339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1498566681}
   - component: {fileID: 1498566680}
+  - component: {fileID: 1498566682}
   m_Layer: 0
   m_Name: Tile 1,0
   m_TagString: Untagged
@@ -3205,6 +3414,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1796962281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1498566682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498566679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 0
+  xTileCoord: 1
+  warningTimer: 0
 --- !u!1 &1582194329
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,6 +3439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1582194330}
   - component: {fileID: 1582194331}
+  - component: {fileID: 1582194332}
   m_Layer: 0
   m_Name: Enemy Tile 2,1
   m_TagString: Untagged
@@ -3289,6 +3514,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1582194332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582194329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 1
+  xTileCoord: 5
+  warningTimer: 0
 --- !u!1 &1590560881
 GameObject:
   m_ObjectHideFlags: 0
@@ -3299,7 +3539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1590560884}
   - component: {fileID: 1590560883}
-  - component: {fileID: 1590560882}
+  - component: {fileID: 1590560885}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3307,44 +3547,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1590560882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590560881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43633cb420840b94081884f13a8b9d61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tiles:
-  - {fileID: 1825308258}
-  - {fileID: 1498566679}
-  - {fileID: 1715309534}
-  - {fileID: 2135799907}
-  - {fileID: 675800458}
-  - {fileID: 2062243301}
-  - {fileID: 256562781}
-  - {fileID: 1972195789}
-  - {fileID: 23721857}
-  - {fileID: 2108182281}
-  - {fileID: 942405239}
-  - {fileID: 1611514442}
-  - {fileID: 80857375}
-  - {fileID: 1582194329}
-  - {fileID: 1703420212}
-  - {fileID: 1257507723}
-  - {fileID: 1002793245}
-  - {fileID: 408474126}
-  - {fileID: 837214667}
-  - {fileID: 460566684}
-  - {fileID: 592092379}
-  - {fileID: 282520896}
-  - {fileID: 888100660}
-  - {fileID: 1975815755}
-  damage: 10
 --- !u!212 &1590560883
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3412,6 +3614,45 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1590560885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590560881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43633cb420840b94081884f13a8b9d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 1825308258}
+  - {fileID: 1498566679}
+  - {fileID: 1715309534}
+  - {fileID: 2135799907}
+  - {fileID: 675800458}
+  - {fileID: 2062243301}
+  - {fileID: 256562781}
+  - {fileID: 1972195789}
+  - {fileID: 23721857}
+  - {fileID: 2108182281}
+  - {fileID: 942405239}
+  - {fileID: 1611514442}
+  - {fileID: 80857375}
+  - {fileID: 1582194329}
+  - {fileID: 1703420212}
+  - {fileID: 1257507723}
+  - {fileID: 1002793245}
+  - {fileID: 408474126}
+  - {fileID: 837214667}
+  - {fileID: 460566684}
+  - {fileID: 592092379}
+  - {fileID: 282520896}
+  - {fileID: 888100660}
+  - {fileID: 1975815755}
+  hpBar: {fileID: 1614475007}
+  currBarLength: 0
 --- !u!1 &1611514442
 GameObject:
   m_ObjectHideFlags: 0
@@ -3422,6 +3663,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1611514444}
   - component: {fileID: 1611514443}
+  - component: {fileID: 1611514445}
   m_Layer: 0
   m_Name: Tile 3,1
   m_TagString: Untagged
@@ -3496,6 +3738,105 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1796962281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1611514445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611514442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 1
+  xTileCoord: 3
+  warningTimer: 0
+--- !u!1 &1614475007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1614475009}
+  - component: {fileID: 1614475008}
+  m_Layer: 0
+  m_Name: PlayeHPBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1614475008
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614475007}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 0, g: 0.7169812, b: 0.42341113, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1614475009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614475007}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.86, y: 2.13, z: 0}
+  m_LocalScale: {x: 7, y: 0.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703420212
 GameObject:
   m_ObjectHideFlags: 0
@@ -3506,6 +3847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1703420213}
   - component: {fileID: 1703420214}
+  - component: {fileID: 1703420215}
   m_Layer: 0
   m_Name: Enemy Tile 1,1
   m_TagString: Untagged
@@ -3580,6 +3922,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1703420215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703420212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 1
+  xTileCoord: 6
+  warningTimer: 0
 --- !u!1 &1715309534
 GameObject:
   m_ObjectHideFlags: 0
@@ -3590,6 +3947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1715309536}
   - component: {fileID: 1715309535}
+  - component: {fileID: 1715309537}
   m_Layer: 0
   m_Name: Tile 2,0
   m_TagString: Untagged
@@ -3664,6 +4022,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1796962281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1715309537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715309534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 0
+  xTileCoord: 2
+  warningTimer: 0
 --- !u!1 &1796962280
 GameObject:
   m_ObjectHideFlags: 0
@@ -3851,6 +4224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1825308260}
   - component: {fileID: 1825308259}
+  - component: {fileID: 1825308261}
   m_Layer: 0
   m_Name: Tile 0,0
   m_TagString: Untagged
@@ -3925,6 +4299,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1796962281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1825308261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825308258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 0
+  xTileCoord: 0
+  warningTimer: 0
 --- !u!1 &1830418679
 GameObject:
   m_ObjectHideFlags: 0
@@ -4086,6 +4475,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1972195790}
   - component: {fileID: 1972195791}
+  - component: {fileID: 1972195792}
   m_Layer: 0
   m_Name: Enemy Tile 0,0
   m_TagString: Untagged
@@ -4160,6 +4550,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1972195792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972195789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 0
+  xTileCoord: 7
+  warningTimer: 0
 --- !u!1 &1975815755
 GameObject:
   m_ObjectHideFlags: 0
@@ -4170,6 +4575,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1975815756}
   - component: {fileID: 1975815757}
+  - component: {fileID: 1975815758}
   m_Layer: 0
   m_Name: Enemy Tile 0,2
   m_TagString: Untagged
@@ -4244,6 +4650,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1975815758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975815755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 2
+  xTileCoord: 7
+  warningTimer: 0
 --- !u!1 &2062243301
 GameObject:
   m_ObjectHideFlags: 0
@@ -4254,6 +4675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2062243302}
   - component: {fileID: 2062243303}
+  - component: {fileID: 2062243304}
   m_Layer: 0
   m_Name: Enemy Tile 2,0
   m_TagString: Untagged
@@ -4328,6 +4750,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2062243304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062243301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 0
+  xTileCoord: 5
+  warningTimer: 0
 --- !u!1 &2108182281
 GameObject:
   m_ObjectHideFlags: 0
@@ -4338,6 +4775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2108182283}
   - component: {fileID: 2108182282}
+  - component: {fileID: 2108182284}
   m_Layer: 0
   m_Name: Tile 1,1
   m_TagString: Untagged
@@ -4412,6 +4850,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1796962281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2108182284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108182281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 1
+  xTileCoord: 1
+  warningTimer: 0
 --- !u!1 &2135799907
 GameObject:
   m_ObjectHideFlags: 0
@@ -4422,6 +4875,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2135799909}
   - component: {fileID: 2135799908}
+  - component: {fileID: 2135799910}
   m_Layer: 0
   m_Name: Tile 3,0
   m_TagString: Untagged
@@ -4496,17 +4950,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1796962281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2135799910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135799907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25af50f4921f18f42a9fa546de289159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yTileCoord: 0
+  xTileCoord: 3
+  warningTimer: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 1590560884}
   - {fileID: 72533627}
   - {fileID: 1796962281}
   - {fileID: 70820724}
+  - {fileID: 1590560884}
   - {fileID: 1971704597}
-  - {fileID: 1473439264}
   - {fileID: 921159936}
   - {fileID: 1313400697}
+  - {fileID: 1473439264}
   - {fileID: 1830418683}
+  - {fileID: 1614475009}

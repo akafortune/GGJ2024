@@ -58,7 +58,7 @@ public class PlayerHand : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if(currentCard +1 >= playerHand.Count)
+            if(currentCard + 1 >= playerHand.Count)
             {
                 currentCard = 0;
             } else
@@ -74,10 +74,21 @@ public class PlayerHand : MonoBehaviour
         deck.discardDeck.Add(currentJoke);
         playerHand.RemoveAt(currentCard);
 
+        if (currentCard >= playerHand.Count && playerHand.Count != 0)
+        {
+            currentCard = playerHand.Count;
+        } 
+        else
+        {
+            currentCard = 0;
+        }
+
         int x = PlayerMovement.playerX;
         int y = PlayerMovement.playerY;
 
         CardDatabase.AdditionalJokeEffect(currentJoke, deck);
+
+        Debug.Log("JokeId: " + currentJoke.id);
 
         //Board is [y, x], Player is 0-3, Enemy is 4-7
         bool relative = CardDatabase.jokeDictionary[currentJoke.id].relative;
@@ -90,12 +101,15 @@ public class PlayerHand : MonoBehaviour
 
         if (relative)
         {
-            foreach (Vector2 offset in currentRange)
+            for (int i = 0; i < currentRange.Count; i++)
             {
-                int offsetX = x + (int) offset.x;
-                int offsetY = y + (int) offset.y;
+                
+                int offsetX = x + (int) currentRange[i].x;
+                int offsetY = y + (int) currentRange[i].y;
 
-                if (x > 7 || x < 0 || y > 2 || y < 0)
+                Debug.Log(currentRange[i].x + ", " + currentRange[i].y);
+
+                if (offsetX > 7 || offsetX < 0 || offsetY > 2 || offsetY < 0)
                 {
                     break;
                 }

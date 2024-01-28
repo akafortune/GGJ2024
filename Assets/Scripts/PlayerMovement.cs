@@ -6,14 +6,22 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public static Tile[,] board = new Tile[3,8];
     public GameObject[] tiles;
+    public static Tile[,] board = new Tile[3,8];
+    public GameObject hpBar;
+    
 
-    public static int playerX = 0, playerY = 0, hp = 100;
-    public int damage = 10;
+    public static int playerX = 0, playerY = 0, currHP = 100, maxHP = 100;
+    public float maxBarLength;
     bool alreadyHit = false;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
+    {
+        BuildBoard();
+        maxBarLength = hpBar.transform.localScale.x;
+    }
+
+    private void BuildBoard()
     {
         int tileIndex = 0;
 
@@ -21,15 +29,9 @@ public class PlayerMovement : MonoBehaviour
         {
             for (int j = 0; j < 8; j++)
             {
-                board[i,j] = new Tile();
-            }
-        }
-
-        for (int i =0; i < 3; i++)
-        {
-            for(int j = 0; j < 8; j++)
-            {
-                board[i,j].SetTileObj(tiles[tileIndex]);
+                board[i, j] = new Tile();
+                board[i, j].tileGameObject = tiles[tileIndex];
+                
                 tileIndex++;
             }
         }
@@ -72,11 +74,13 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
             //Tile formatting is board[y,x]
-            this.gameObject.transform.position = board[playerY, playerX].GetTilePos().position;
+            this.gameObject.transform.position = board[playerY, playerX].tileGameObject.transform.position;
 
+            //If the current tile is dangerous, take damage
             if (board[playerY, playerX].currentState == TileState.PlayerHazard && !alreadyHit)
             {
-                hp -= board[playerY, playerX].damage;
+                currHP -= board[playerY, playerX].damage;
+                
                 alreadyHit= true;          
             }
         }
@@ -89,12 +93,21 @@ public class PlayerMovement : MonoBehaviour
                 alreadyHit = false;
             }
         }
+
+        if (board[playerY, playerX].currentState == TileState.PlayerHazard)
+        {
+            currHP -= board[playerY, playerX].damage;
+            recalculateHPBar();
+        }
     }
 
-
-    public void decrementHP(int damage)
+    public void recalculateHPBar()
     {
-        //update later to trigger cutscene/encore on death
-        hp -= damage;
+        float hpRatio = (float)currHP / (float)maxHP;
+        float oldBarLength = hpBar.transform.localScale.x;
+        float newBarLength = hpRatio * maxBarLength;
+        float difference = oldBarLength - newBarLength;
+        hpBar.transform.localScale = new Vector2(newBarLength, hpBar.transform.localScale.y);
+        hpBar.transform.position = new Vector2(hpBar.transform.position.x - (difference/2), hpBar.transform.position.y);
     }
 }

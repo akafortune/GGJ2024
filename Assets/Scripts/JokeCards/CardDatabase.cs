@@ -6,10 +6,6 @@ public class CardDatabase : MonoBehaviour
 {
     public static Dictionary<int, Card> jokeDictionary = new Dictionary<int, Card>();
 
-    private List<Vector2> temp = new List<Vector2>();
-
-    
-
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,33 +26,33 @@ public class CardDatabase : MonoBehaviour
          * values can go outside the grid if player is not in the back column
          * so add outofbounds checks in execution function
         */
-        temp.Add(new Vector2(1, 0));
-        temp.Add(new Vector2(2, 0));
-        temp.Add(new Vector2(3, 0));
-        temp.Add(new Vector2(4, 0));
-        temp.Add(new Vector2(5, 0));
-        temp.Add(new Vector2(6, 0));
-        temp.Add(new Vector2(7, 0));
+        List<Vector2> temp1 = new List<Vector2>();
+        temp1.Add(new Vector2(1, 0));
+        temp1.Add(new Vector2(2, 0));
+        temp1.Add(new Vector2(3, 0));
+        temp1.Add(new Vector2(4, 0));
+        temp1.Add(new Vector2(5, 0));
+        temp1.Add(new Vector2(6, 0));
+        temp1.Add(new Vector2(7, 0));
 
         jokeDictionary.Add(2,
             new Card(2, "On Fire",
             "Deal damage proportional to the Level of Laughs in a straight line.",
             JokeType.Witty,
             true,
-            temp,
+            temp1,
             1));
-
-        temp.Clear();
 
         //Knock-Knock?
         /* Uses absolute values for the grid
          */
-        temp.Add(new Vector2(4, 0));
-        temp.Add(new Vector2(4, 1));
-        temp.Add(new Vector2(4, 2));
-        temp.Add(new Vector2(7, 0));
-        temp.Add(new Vector2(7, 1));
-        temp.Add(new Vector2(7, 2));
+        List<Vector2> temp2 = new List<Vector2>();
+        temp2.Add(new Vector2(4, 0));
+        temp2.Add(new Vector2(4, 1));
+        temp2.Add(new Vector2(4, 2));
+        temp2.Add(new Vector2(7, 0));
+        temp2.Add(new Vector2(7, 1));
+        temp2.Add(new Vector2(7, 2));
 
         jokeDictionary.Add(3,
             new Card(3, "Knock-Knock?",
@@ -64,20 +60,19 @@ public class CardDatabase : MonoBehaviour
             "towards the center.",
             JokeType.Corny,
             false,
-            temp,
+            temp2,
             2));
-
-        temp.Clear();
 
         //New Joke Here
 
         //Enemy Exclusive Jokes
 
         //Beam
-        temp.Add(new Vector2());
-        temp.Add(new Vector2());
-        temp.Add(new Vector2());
-        temp.Add(new Vector2());
+        List<Vector2> temp100 = new List<Vector2>();
+        temp100.Add(new Vector2());
+        temp100.Add(new Vector2());
+        temp100.Add(new Vector2());
+        temp100.Add(new Vector2());
 
         jokeDictionary.Add(100,
             new Card(100, false,
@@ -85,7 +80,7 @@ public class CardDatabase : MonoBehaviour
             "\"BEAMU\" - Robo-Fortune",
             JokeType.None,
             true,
-            temp,
+            temp100,
             3));
     }
 

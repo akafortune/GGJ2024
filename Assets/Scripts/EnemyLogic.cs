@@ -7,7 +7,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class EnemyLogic : MonoBehaviour
 {
     public static int enemyX = 6, enemyY = 1;
-    float atkDelay = 1, atkDelayTimer = 0;
+    bool alreadyAttacked = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,7 @@ public class EnemyLogic : MonoBehaviour
     {
         if (TurnHandoff.enemyMovePhase)
         {
-            atkDelayTimer = 0;
+            alreadyAttacked = false;
 
             int xMovement = Random.Range(-1, 2);
             
@@ -38,7 +38,7 @@ public class EnemyLogic : MonoBehaviour
                 enemyY -= 1;
             }
 
-            this.gameObject.transform.position = PlayerMovement.board[enemyY, enemyX].GetTilePos().position;
+            this.gameObject.transform.position = PlayerMovement.board[enemyY, enemyX].tileGameObject.transform.position;
 
             
             TurnHandoff.movePhase= true;
@@ -46,7 +46,10 @@ public class EnemyLogic : MonoBehaviour
 
         if(TurnHandoff.movePhase)
         {
-            beamAttack();
+            if(!alreadyAttacked)
+            {
+                beamAttack();
+            }
         }
     }
 
@@ -60,6 +63,8 @@ public class EnemyLogic : MonoBehaviour
             PlayerMovement.board[enemyY, j].currentState = TileState.Warning;
             PlayerMovement.board[enemyY, j].upcomingJoke = laser;
         }
+
+        alreadyAttacked = true;
     }
 
 }
