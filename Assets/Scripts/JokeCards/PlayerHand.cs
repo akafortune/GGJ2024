@@ -39,6 +39,7 @@ public class PlayerHand : MonoBehaviour
         else
         {
             string currCardNum = (currentCard + 1).ToString();
+            Debug.Log(currentCard);
             nameText.SetText(playerHand[currentCard].GetName());
             descriptionText.SetText(playerHand[currentCard].GetDescription());
             cardIndexText.SetText(currCardNum + " / " + playerHand.Count.ToString());
@@ -74,9 +75,9 @@ public class PlayerHand : MonoBehaviour
         deck.discardDeck.Add(currentJoke);
         playerHand.RemoveAt(currentCard);
 
-        if (currentCard >= playerHand.Count && playerHand.Count != 0)
+        if (playerHand.Count != 0)
         {
-            currentCard = playerHand.Count;
+            currentCard -= 1;
         } 
         else
         {

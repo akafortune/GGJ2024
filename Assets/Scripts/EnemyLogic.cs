@@ -6,12 +6,14 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class EnemyLogic : MonoBehaviour
 {
+    public GameObject hpBar;
     public static int enemyX = 6, enemyY = 1;
     bool alreadyAttacked = false;
+    float currHP = 100, maxHP = 100, maxBarLength;
     // Start is called before the first frame update
     void Start()
     {
-        
+        maxBarLength = hpBar.transform.localScale.x;
     }
 
     // Update is called once per frame
@@ -51,6 +53,13 @@ public class EnemyLogic : MonoBehaviour
                 beamAttack();
             }
         }
+
+        if (PlayerMovement.board[enemyY, enemyX].currentState == TileState.EnemyHazard)
+        {
+            currHP -= PlayerMovement.board[enemyY, enemyX].damage;
+            recalculateHPBar();
+        }
+
     }
 
     public void beamAttack()
@@ -65,6 +74,16 @@ public class EnemyLogic : MonoBehaviour
         }
 
         alreadyAttacked = true;
+    }
+
+    public void recalculateHPBar()
+    {
+        float hpRatio = (float)currHP / (float)maxHP;
+        float oldBarLength = hpBar.transform.localScale.x;
+        float newBarLength = hpRatio * maxBarLength;
+        float difference = oldBarLength - newBarLength;
+        hpBar.transform.localScale = new Vector2(newBarLength, hpBar.transform.localScale.y);
+        hpBar.transform.position = new Vector2(hpBar.transform.position.x + (difference / 2), hpBar.transform.position.y);
     }
 
 }

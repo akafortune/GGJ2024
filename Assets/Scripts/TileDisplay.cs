@@ -30,7 +30,6 @@ public class TileDisplay : MonoBehaviour
             warningTimer += Time.deltaTime;
             if (warningTimer >= 1)
             {
-                Debug.Log("HAZARD DUTY PAY by JPEGMAFIA");
                 ActivateJoke();
                 warningTimer = 0;
             }

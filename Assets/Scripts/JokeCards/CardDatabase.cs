@@ -41,7 +41,7 @@ public class CardDatabase : MonoBehaviour
             JokeType.Witty,
             true,
             temp1,
-            1));
+            20));
 
         //Knock-Knock?
         /* Uses absolute values for the grid
