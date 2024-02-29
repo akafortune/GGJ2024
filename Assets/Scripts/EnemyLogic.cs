@@ -7,6 +7,7 @@ public class EnemyLogic : MonoBehaviour
 {
     public Animator JSAnim;
     public GameObject hpBar;
+    public GameObject retryScreen;
     public static int enemyX = 5, enemyY = 1;
     bool alreadyAttacked = false;
     float maxBarLength;
@@ -31,7 +32,7 @@ public class EnemyLogic : MonoBehaviour
 
             int xMovement = Random.Range(-1, 2);
             
-            if(enemyX + xMovement > 3 && enemyX + xMovement < 5)
+            if(enemyX + xMovement >= 3 && enemyX + xMovement <= 5)
             {
                 enemyX += xMovement;
             }
@@ -57,8 +58,9 @@ public class EnemyLogic : MonoBehaviour
             if(!alreadyAttacked)
             {
                 JSAnim.SetBool("IsAttacking", true);
-                beamAttack();
-                
+                int randInt =(int) Random.Range(0,2);
+
+                colAttack();
             }
         }
 
@@ -66,6 +68,16 @@ public class EnemyLogic : MonoBehaviour
         {
             JSAnim.SetBool("IsHit", true);
             currHP -= PlayerMovement.board[enemyY, enemyX].damage;
+
+            if(currHP <= 0 && LevelOfLaughs.levelOfLaughs >= 75)
+            {
+                retryScreen.SetActive(true);
+                Time.timeScale = 0;
+            }else if(currHP <= 0 && LevelOfLaughs.levelOfLaughs < 75)
+            {
+                currHP = 1;
+            }
+
             recalculateHPBar();
         }
 
@@ -81,6 +93,21 @@ public class EnemyLogic : MonoBehaviour
             PlayerMovement.board[enemyY, j].currentState = TileState.Warning;
             PlayerMovement.board[enemyY, j].upcomingJoke = laser;
             
+        }
+        alreadyAttacked = true;
+    }
+
+    public void colAttack()
+    {
+
+        Card column = new Card();
+        column = CardDatabase.jokeDictionary[101];
+
+        for (int j = 0; j < enemyX; j++)
+        {
+            PlayerMovement.board[enemyY, j].currentState = TileState.Warning;
+            PlayerMovement.board[enemyY, j].upcomingJoke = column;
+
         }
         alreadyAttacked = true;
     }

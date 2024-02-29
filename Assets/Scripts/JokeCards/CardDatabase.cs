@@ -107,6 +107,24 @@ public class CardDatabase : MonoBehaviour
             true,
             temp100,
             8));
+
+        //Column
+        List<Vector2> temp101 = new List<Vector2>();
+        temp101.Add(new Vector2(0, 0));
+        temp101.Add(new Vector2(0, 1));
+        temp101.Add(new Vector2(0, 2));
+        temp101.Add(new Vector2(2, 0));
+        temp101.Add(new Vector2(2, 1));
+        temp101.Add(new Vector2(2, 2));
+
+        jokeDictionary.Add(101,
+            new Card(101, false,
+            "Column",
+            "Orbital Beam",
+            JokeType.None,
+            false,
+            temp101,
+            8));
     }
 
     public static void AdditionalJokeEffect(Card joke, PlayerDeck deck)
@@ -115,7 +133,7 @@ public class CardDatabase : MonoBehaviour
         switch (joke.id) {
             case 1:
                 deck.DrawCard();
-                PlayerHand.currentFlow += 1;
+                PlayerHand.currentFlow += 2;
                 break;
         }
     }

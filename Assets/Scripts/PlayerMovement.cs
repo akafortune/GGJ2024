@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator earlAnim;
 
+    public GameObject retryScreen;
+
     
 
     public static int playerX = 0, playerY = 0, currHP;
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Time.timeScale = 1;
         BuildBoard();
         maxBarLength = hpBar.transform.localScale.x;
     }
@@ -126,10 +129,10 @@ public class PlayerMovement : MonoBehaviour
                 currHP = (int) maxHP / 2;
             } else if (currHP - board[playerY, playerX].damage <= 0 && LevelOfLaughs.levelOfLaughs < 100)
             {
-                LevelOfLaughs.levelOfLaughs = 50;
-                earlAnim.SetBool("Encore", true);
-                Debug.Log("You Lose");
-                SceneManager.LoadScene("TurnScene");
+                currHP = 0;
+                Time.timeScale = 0;
+                retryScreen.SetActive(true);
+
             } else if (currHP - board[playerY, playerX].damage > 0)
             {
                 currHP -= board[playerY, playerX].damage;
@@ -148,5 +151,7 @@ public class PlayerMovement : MonoBehaviour
         float newBarLength = hpRatio * maxBarLength;
         hpBar.transform.localScale = new Vector2(newBarLength, hpBar.transform.localScale.y);
     }
+
+   
 }
     
